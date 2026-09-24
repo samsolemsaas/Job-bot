@@ -44,11 +44,26 @@ TITLE_INCLUDE = [
     "marketing director", "director of marketing", "director, marketing",
     "head of marketing", "vp marketing", "vp, marketing", "vice president, marketing",
     "vice president of marketing",
+    # Communications
+    "communications manager", "communications director", "director of communications",
+    "director, communications", "head of communications", "communications lead",
+    "corporate communications", "internal communications", "executive communications",
+    "partner communications", "product communications", "marketing communications",
+    "comms", "public relations", "pr manager", "pr director", "media relations",
+    # Marketing ops and martech
+    "mops", "marketing automation", "marketing technology", "martech",
 ]
 TITLE_EXCLUDE = [
     "intern", "apprentice", "coordinator", "sales development",
     "business development representative", "account executive", "recruit",
+    "software engineer", "staff engineer", "data engineer",
+    "designer", "design lead", "product manager", "canada", "emea", "apac",
+    "latam", "uk&i", "dach",
 ]
+# Titles with these words stay in even if an exclude word appears
+TITLE_HARD_EXCLUDE = ["engineering manager"]
+TITLE_KEEP = ["gtm engineer", "go-to-market engineer", "marketing engineer",
+              "product marketing manager"]
 
 # ---------- Location filter ----------
 SEATTLE_METRO = ["seattle", "bellevue", "kirkland", "redmond"]
@@ -67,7 +82,9 @@ IN_OFFICE_WORDS = ["hybrid", "on-site", "onsite", "in office", "in-office"]
 
 def title_matches(title):
     t = title.lower()
-    if any(word in t for word in TITLE_EXCLUDE):
+    if any(word in t for word in TITLE_HARD_EXCLUDE):
+        return False
+    if any(word in t for word in TITLE_EXCLUDE) and not any(k in t for k in TITLE_KEEP):
         return False
     return any(word in t for word in TITLE_INCLUDE)
 
@@ -365,6 +382,30 @@ def upgrade_log_header():
         csv.writer(f).writerows(rows)
 
 
+def merge_duplicates(matches):
+    """Collapse the same role posted once per city into a single entry."""
+    rank = {"Seattle metro": 0, "Seattle metro (hybrid)": 0, "Remote or Seattle metro": 0,
+            "Remote (US)": 1, "Remote (US, country-level listing)": 2,
+            "Remote (confirm US eligibility)": 3}
+    groups = {}
+    for m in matches:
+        key = (m["company"].lower(), re.sub(r"\s+", " ", m["title"].lower()).strip())
+        groups.setdefault(key, []).append(m)
+    merged = []
+    oldest = datetime(1970, 1, 1, tzinfo=timezone.utc)
+    for items in groups.values():
+        items.sort(key=lambda m: (rank.get(m["label"], 9), not m["comp"]))
+        best = dict(items[0])
+        best["all_ids"] = [m["id"] for m in items]
+        dates = [m["posted"] for m in items if m.get("posted")]
+        best["posted"] = min(dates) if dates else None
+        if len(items) > 1:
+            best["label"] = best["label"] + f", {len(items)} locations"
+        merged.append(best)
+    merged.sort(key=lambda m: m.get("posted") or oldest, reverse=True)
+    return merged
+
+
 # ---------- Main ----------
 def main():
     dry_run = "--dry-run" in sys.argv
@@ -409,12 +450,14 @@ def main():
             matches.append({**j, "company": name, "label": label})
         time.sleep(0.1)
 
+    matches = merge_duplicates(matches)
     found_date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     oldest = datetime(1970, 1, 1, tzinfo=timezone.utc)
     matches.sort(key=lambda m: m.get("posted") or oldest, reverse=True)
     new_ids = {m["id"] for m in matches if m["id"] not in seen}
     for m in matches:
-        seen.setdefault(m["id"], found_date)
+        for jid in m["all_ids"]:
+            seen.setdefault(jid, found_date)
 
     if matches:
         subject, text, html = build_email(matches, first_run, scanned, len(missing), resend)
