@@ -1,0 +1,978 @@
+{
+ "1Password": {
+  "ats": "ashby",
+  "slug": "1password"
+ },
+ "6sense": {
+  "ats": "greenhouse",
+  "slug": "6sense"
+ },
+ "7AI": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Abnormal AI": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Abstract Security": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Adaptive Security": {
+  "ats": "ashby",
+  "slug": "adaptivesecurity"
+ },
+ "Aembit": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Aikido Security": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "AirMDR": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Aircall": {
+  "ats": "lever",
+  "slug": "aircall"
+ },
+ "Airtable": {
+  "ats": "greenhouse",
+  "slug": "airtable"
+ },
+ "Alice.io": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Alloy": {
+  "ats": "greenhouse",
+  "slug": "alloy"
+ },
+ "Amperity": {
+  "ats": "greenhouse",
+  "slug": "amperity"
+ },
+ "Andromeda Security": {
+  "ats": "ashby",
+  "slug": "andromeda"
+ },
+ "Anthropic": {
+  "ats": "greenhouse",
+  "slug": "anthropic"
+ },
+ "Anvilogic": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Apiiro": {
+  "ats": "greenhouse",
+  "slug": "apiiro"
+ },
+ "Apollo.io": {
+  "ats": "greenhouse",
+  "slug": "apolloio"
+ },
+ "Aqua Security": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Arctic Wolf": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Astrix Security": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Attio": {
+  "ats": "ashby",
+  "slug": "attio"
+ },
+ "AuditBoard": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Avalara": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Avante": {
+  "ats": "lever",
+  "slug": "avante"
+ },
+ "Backslash Security": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "BeyondTrust": {
+  "ats": "greenhouse",
+  "slug": "beyondtrust"
+ },
+ "Blumira": {
+  "ats": "greenhouse",
+  "slug": "blumira"
+ },
+ "Blurb": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Brex": {
+  "ats": "greenhouse",
+  "slug": "brex"
+ },
+ "Bugcrowd": {
+  "ats": "greenhouse",
+  "slug": "bugcrowd"
+ },
+ "Calendly": {
+  "ats": "greenhouse",
+  "slug": "calendly"
+ },
+ "Cato Networks": {
+  "ats": "greenhouse",
+  "slug": "catonetworks"
+ },
+ "Censys": {
+  "ats": "greenhouse",
+  "slug": "censys"
+ },
+ "Chainguard": {
+  "ats": "greenhouse",
+  "slug": "chainguard"
+ },
+ "Charm Security": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Check Point": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Chili Piper": {
+  "ats": "ashby",
+  "slug": "chilipiper"
+ },
+ "Chronosphere": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Clay": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Clearly AI": {
+  "ats": "ashby",
+  "slug": "clearly-ai"
+ },
+ "Clerk": {
+  "ats": "ashby",
+  "slug": "clerk"
+ },
+ "CloudBees": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Cobalt": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Common Room": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Concentric AI": {
+  "ats": "greenhouse",
+  "slug": "concentric"
+ },
+ "ConductorOne": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "ConnectWise": {
+  "ats": "greenhouse",
+  "slug": "connectwise"
+ },
+ "Conveyor": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Corellium": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Coverbase": {
+  "ats": "ashby",
+  "slug": "coverbase"
+ },
+ "Cranium": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Crash Override": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Crelate": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Cresta": {
+  "ats": "greenhouse",
+  "slug": "cresta"
+ },
+ "Cribl": {
+  "ats": "greenhouse",
+  "slug": "cribl"
+ },
+ "Crogl": {
+  "ats": "ashby",
+  "slug": "crogl"
+ },
+ "Customer.io": {
+  "ats": "greenhouse",
+  "slug": "customerio"
+ },
+ "Cycode": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Cyera": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Cymulate": {
+  "ats": "greenhouse",
+  "slug": "cymulate"
+ },
+ "Darktrace": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "DataGrail": {
+  "ats": "greenhouse",
+  "slug": "datagrail"
+ },
+ "Deception Check": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Deel": {
+  "ats": "ashby",
+  "slug": "deel"
+ },
+ "Default": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "DefenseStorm": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Delinea": {
+  "ats": "ashby",
+  "slug": "delinea"
+ },
+ "Demandbase": {
+  "ats": "ashby",
+  "slug": "demandbase"
+ },
+ "Descope": {
+  "ats": "greenhouse",
+  "slug": "descope"
+ },
+ "DomainTools": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Doppel": {
+  "ats": "greenhouse",
+  "slug": "doppel"
+ },
+ "Drata": {
+  "ats": "ashby",
+  "slug": "drata"
+ },
+ "Dreamdata": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Dropzone AI": {
+  "ats": "greenhouse",
+  "slug": "dropzoneai"
+ },
+ "EasyDMARC": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Elastic": {
+  "ats": "greenhouse",
+  "slug": "elastic"
+ },
+ "Embed Security": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Empirical Security": {
+  "ats": "ashby",
+  "slug": "empirical-security"
+ },
+ "Endor Labs": {
+  "ats": "greenhouse",
+  "slug": "endorlabs"
+ },
+ "Exabeam": {
+  "ats": "greenhouse",
+  "slug": "exabeam"
+ },
+ "Exaforce": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Expel": {
+  "ats": "greenhouse",
+  "slug": "expel"
+ },
+ "ExtraHop": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Fig Security": {
+  "ats": "ashby",
+  "slug": "fig"
+ },
+ "Filigran": {
+  "ats": "ashby",
+  "slug": "filigran"
+ },
+ "Fivetran": {
+  "ats": "greenhouse",
+  "slug": "fivetran"
+ },
+ "Flashpoint": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Fortra": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "GTB Technologies": {
+  "ats": "greenhouse",
+  "slug": "gtb"
+ },
+ "Gainsight": {
+  "ats": "ashby",
+  "slug": "gainsight"
+ },
+ "Geordie AI": {
+  "ats": "ashby",
+  "slug": "geordieai"
+ },
+ "GitLab": {
+  "ats": "greenhouse",
+  "slug": "gitlab"
+ },
+ "Glean": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Glide Identity": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Gong": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Grafana Labs": {
+  "ats": "greenhouse",
+  "slug": "grafanalabs"
+ },
+ "GreyNoise": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Gusto": {
+  "ats": "greenhouse",
+  "slug": "gusto"
+ },
+ "HUMAN": {
+  "ats": "ashby",
+  "slug": "human"
+ },
+ "HackerOne": {
+  "ats": "ashby",
+  "slug": "hackerone"
+ },
+ "Hex": {
+  "ats": "ashby",
+  "slug": "hex"
+ },
+ "HiddenLayer": {
+  "ats": "greenhouse",
+  "slug": "hiddenlayer"
+ },
+ "Highspot": {
+  "ats": "lever",
+  "slug": "highspot"
+ },
+ "Horizon3.ai": {
+  "ats": "ashby",
+  "slug": "horizon3ai"
+ },
+ "Hoxhunt": {
+  "ats": "ashby",
+  "slug": "hoxhunt"
+ },
+ "HubSpot": {
+  "ats": "greenhouse",
+  "slug": "hubspot"
+ },
+ "Humanix": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Hunters": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Huntress": {
+  "ats": "greenhouse",
+  "slug": "huntress"
+ },
+ "Hyperproof": {
+  "ats": "greenhouse",
+  "slug": "hyperproof"
+ },
+ "Icertis": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Imply": {
+  "ats": "greenhouse",
+  "slug": "imply"
+ },
+ "Incalmo": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Intezer": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Island": {
+  "ats": "greenhouse",
+  "slug": "island"
+ },
+ "Jasper": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Keeper Security": {
+  "ats": "greenhouse",
+  "slug": "keepersecurity"
+ },
+ "Knostic": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "KnowBe4": {
+  "ats": "greenhouse",
+  "slug": "knowbe4"
+ },
+ "Lattice": {
+  "ats": "greenhouse",
+  "slug": "lattice"
+ },
+ "LaunchDarkly": {
+  "ats": "greenhouse",
+  "slug": "launchdarkly"
+ },
+ "LeanData": {
+  "ats": "ashby",
+  "slug": "leandata"
+ },
+ "Legit Security": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Linx Security": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "MIND": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Mallory": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Material Security": {
+  "ats": "ashby",
+  "slug": "materialsecurity"
+ },
+ "Mend.io": {
+  "ats": "ashby",
+  "slug": "mend-io"
+ },
+ "Mercury": {
+  "ats": "greenhouse",
+  "slug": "mercury"
+ },
+ "Mindgard": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "MotherDuck": {
+  "ats": "ashby",
+  "slug": "motherduck"
+ },
+ "Mutiny": {
+  "ats": "ashby",
+  "slug": "mutiny"
+ },
+ "Nebulock": {
+  "ats": "ashby",
+  "slug": "nebulock"
+ },
+ "Netcraft": {
+  "ats": "greenhouse",
+  "slug": "netcraft"
+ },
+ "Nightfall AI": {
+  "ats": "ashby",
+  "slug": "nightfall-ai"
+ },
+ "Nintex": {
+  "ats": "greenhouse",
+  "slug": "nintex"
+ },
+ "Noma Security": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Notion": {
+  "ats": "ashby",
+  "slug": "notion"
+ },
+ "Nucleus Security": {
+  "ats": "greenhouse",
+  "slug": "nucleus"
+ },
+ "Oasis Security": {
+  "ats": "greenhouse",
+  "slug": "oasissecurity"
+ },
+ "Ocean Security": {
+  "ats": "ashby",
+  "slug": "ocean"
+ },
+ "Okta": {
+  "ats": "greenhouse",
+  "slug": "okta"
+ },
+ "Oligo Security": {
+  "ats": "ashby",
+  "slug": "oligo"
+ },
+ "OneTrust": {
+  "ats": "greenhouse",
+  "slug": "onetrust"
+ },
+ "Opal Security": {
+  "ats": "ashby",
+  "slug": "opal"
+ },
+ "Opnova": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Orca Security": {
+  "ats": "greenhouse",
+  "slug": "orcasecurity"
+ },
+ "Oscilar": {
+  "ats": "ashby",
+  "slug": "oscilar"
+ },
+ "Outreach": {
+  "ats": "lever",
+  "slug": "outreach"
+ },
+ "PagerDuty": {
+  "ats": "greenhouse",
+  "slug": "pagerduty"
+ },
+ "Palo Alto Networks": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Panther": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Pentera": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Perpetual Systems": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Persona": {
+  "ats": "ashby",
+  "slug": "persona"
+ },
+ "Pillar Security": {
+  "ats": "lever",
+  "slug": "pillar"
+ },
+ "Ping Identity": {
+  "ats": "greenhouse",
+  "slug": "pingidentity"
+ },
+ "Postman": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Profound": {
+  "ats": "greenhouse",
+  "slug": "profound"
+ },
+ "Prophet Security": {
+  "ats": "ashby",
+  "slug": "prophet-security"
+ },
+ "Pure Storage": {
+  "ats": "greenhouse",
+  "slug": "purestorage"
+ },
+ "Qualified": {
+  "ats": "ashby",
+  "slug": "qualified"
+ },
+ "Qumulo": {
+  "ats": "ashby",
+  "slug": "qumulo"
+ },
+ "RAVEL": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Radware": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Ramp": {
+  "ats": "ashby",
+  "slug": "ramp"
+ },
+ "Realm Labs": {
+  "ats": "greenhouse",
+  "slug": "realm"
+ },
+ "ReliaQuest": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Responsive": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Retool": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Rippling": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "SOCRadar": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Safe Security": {
+  "ats": "ashby",
+  "slug": "safe"
+ },
+ "Salesloft": {
+  "ats": "greenhouse",
+  "slug": "salesloft"
+ },
+ "Samsara": {
+  "ats": "greenhouse",
+  "slug": "samsara"
+ },
+ "SandboxAQ": {
+  "ats": "ashby",
+  "slug": "sandboxaq"
+ },
+ "Sardine": {
+  "ats": "ashby",
+  "slug": "sardine"
+ },
+ "Saviynt": {
+  "ats": "lever",
+  "slug": "saviynt"
+ },
+ "Secure Agentics": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Secureframe": {
+  "ats": "ashby",
+  "slug": "secureframe"
+ },
+ "Seemplicity": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Seismic": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Semgrep": {
+  "ats": "ashby",
+  "slug": "semgrep"
+ },
+ "Semperis": {
+  "ats": "ashby",
+  "slug": "semperis"
+ },
+ "Senteon": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "SentiLink": {
+  "ats": "ashby",
+  "slug": "sentilink"
+ },
+ "Sentra": {
+  "ats": "ashby",
+  "slug": "sentra"
+ },
+ "Silverfort": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Smartsheet": {
+  "ats": "greenhouse",
+  "slug": "smartsheet"
+ },
+ "Snyk": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Socket": {
+  "ats": "greenhouse",
+  "slug": "socket"
+ },
+ "Socure": {
+  "ats": "ashby",
+  "slug": "socure"
+ },
+ "Sonatype": {
+  "ats": "lever",
+  "slug": "sonatype"
+ },
+ "Sophos": {
+  "ats": "lever",
+  "slug": "sophos"
+ },
+ "Sourcegraph": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Sprinto": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Sprout Social": {
+  "ats": "greenhouse",
+  "slug": "sproutsocial"
+ },
+ "Stackline": {
+  "ats": "greenhouse",
+  "slug": "stackline"
+ },
+ "Stairwell": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Straiker": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Sublime Security": {
+  "ats": "ashby",
+  "slug": "sublime-security"
+ },
+ "Sumo Logic": {
+  "ats": "greenhouse",
+  "slug": "sumologic"
+ },
+ "Supabase": {
+  "ats": "ashby",
+  "slug": "supabase"
+ },
+ "Sweet Security": {
+  "ats": "greenhouse",
+  "slug": "sweetsecurity"
+ },
+ "Swimlane": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Tailscale": {
+  "ats": "greenhouse",
+  "slug": "tailscale"
+ },
+ "Tanium": {
+  "ats": "greenhouse",
+  "slug": "tanium"
+ },
+ "Teleport": {
+  "ats": "lever",
+  "slug": "teleport"
+ },
+ "Temporal": {
+  "ats": "ashby",
+  "slug": "temporal"
+ },
+ "Tenable": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Textio": {
+  "ats": "greenhouse",
+  "slug": "textio"
+ },
+ "Thoropass": {
+  "ats": "greenhouse",
+  "slug": "thoropass"
+ },
+ "ThreatDown": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "ThreatLocker": {
+  "ats": "greenhouse",
+  "slug": "threatlocker"
+ },
+ "Tines": {
+  "ats": "greenhouse",
+  "slug": "tines"
+ },
+ "Todyl": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Token Security": {
+  "ats": "greenhouse",
+  "slug": "tokensecurity"
+ },
+ "Torq": {
+  "ats": "greenhouse",
+  "slug": "torq"
+ },
+ "Tracebit": {
+  "ats": "ashby",
+  "slug": "tracebit"
+ },
+ "Transcend": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Twingate": {
+  "ats": "lever",
+  "slug": "twingate"
+ },
+ "Unify": {
+  "ats": "ashby",
+  "slug": "unify"
+ },
+ "Upwind": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Vanta": {
+  "ats": "ashby",
+  "slug": "vanta"
+ },
+ "Varonis": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Vectra AI": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Vercel": {
+  "ats": "greenhouse",
+  "slug": "vercel"
+ },
+ "VulnCheck": {
+  "ats": "greenhouse",
+  "slug": "vulncheck"
+ },
+ "Wallarm": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "WatchGuard": {
+  "ats": "lever",
+  "slug": "watchguard"
+ },
+ "Webflow": {
+  "ats": "greenhouse",
+  "slug": "webflow"
+ },
+ "Whistic": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Writer": {
+  "ats": "ashby",
+  "slug": "writer"
+ },
+ "XBOW": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Zafran": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "Zapier": {
+  "ats": "ashby",
+  "slug": "zapier"
+ },
+ "Zenity": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "ZeroPath": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "ZoomInfo": {
+  "ats": "greenhouse",
+  "slug": "zoominfo"
+ },
+ "dbt Labs": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "ngrok": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ },
+ "wolfSSL": {
+  "checked": 1790272139.0928469,
+  "missing": true
+ }
+}
