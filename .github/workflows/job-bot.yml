@@ -5,9 +5,18 @@ on:
     - cron: "0 14 * * *"
     - cron: "0 23 * * *"
   workflow_dispatch:
+    inputs:
+      resend_all:
+        description: "Resend every current match"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
+
+concurrency:
+  group: job-bot
+  cancel-in-progress: false
 
 jobs:
   run:
@@ -22,6 +31,7 @@ jobs:
           GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           DIGEST_TO: ${{ secrets.DIGEST_TO }}
+          RESEND_ALL: ${{ inputs.resend_all }}
         run: python job_bot.py
       - name: Save what the bot has seen
         run: |
@@ -29,4 +39,5 @@ jobs:
           git config user.email "job-bot@users.noreply.github.com"
           git add state
           git diff --cached --quiet || git commit -m "Update job bot state"
-          git push
+          git pull --rebase origin main
+          git push origin HEAD:main
