@@ -1,0 +1,271 @@
+# Job bot target companies. One per line.
+# The bot finds each company's Greenhouse, Lever or Ashby board on its own.
+# If it guesses wrong or can't find one, add an override:  Company Name | ashby:slug
+# (slug = the part of the careers URL after the ATS domain, e.g. jobs.ashbyhq.com/nightfall-ai)
+# Lines starting with # are ignored.
+
+# --- Identity & access ---
+1Password
+Okta
+Teleport
+Token Security
+Keeper Security
+SentiLink
+Astrix Security
+Oasis Security
+Aembit
+Silverfort
+Semperis
+Saviynt
+ConductorOne
+Opal Security
+Andromeda Security
+Linx Security
+Descope
+Clerk
+Persona
+Socure
+BeyondTrust
+Delinea
+Ping Identity
+
+# --- SecOps, AI SOC, MDR & detection ---
+Nebulock
+Arctic Wolf
+ThreatDown
+Embed Security
+AirMDR
+Prophet Security
+Dropzone AI
+7AI
+Exaforce
+Torq
+Tines
+Intezer
+Expel
+Huntress
+Blumira
+Panther
+Anvilogic
+Hunters
+Abstract Security
+Cribl
+Elastic
+Todyl
+Stairwell
+
+# --- Cloud, application & data ---
+Nightfall AI | ashby:nightfall-ai
+Cyera
+Sentra
+Chainguard
+Upwind
+Sweet Security
+Orca Security
+Aqua Security
+Aikido Security
+Endor Labs
+Semgrep
+Socket
+Snyk
+Legit Security
+Apiiro
+Cycode
+Oligo Security
+Island
+Sonatype
+CloudBees
+Imply
+
+# --- Email, fraud & human risk ---
+Abnormal AI
+Ocean Security
+KnowBe4
+Netcraft
+Oscilar
+Material Security
+Sublime Security
+Adaptive Security
+Hoxhunt
+Doppel
+Sardine
+Alloy
+DefenseStorm
+
+# --- GRC, compliance & privacy ---
+Vanta
+Drata
+Secureframe
+Thoropass
+Sprinto
+Hyperproof
+AuditBoard
+OneTrust
+DataGrail
+Coverbase
+Whistic
+Conveyor
+Transcend
+
+# --- AI security ---
+HiddenLayer
+Noma Security
+Pillar Security
+Zenity
+Straiker
+Mindgard
+Cranium
+Knostic
+
+# --- Exposure, threat intel & network ---
+Empirical Security
+DomainTools
+Check Point
+WatchGuard
+Palo Alto Networks
+Zafran
+Seemplicity
+Nucleus Security
+VulnCheck
+Horizon3.ai
+Pentera
+Cobalt
+Bugcrowd
+HackerOne
+Censys
+GreyNoise
+Flashpoint
+Twingate
+Tailscale
+Cato Networks
+ExtraHop
+Tanium
+ConnectWise
+
+# --- GTM, martech & revenue tools ---
+Customer.io
+Gainsight
+Responsive
+Cresta
+Aircall
+Clay
+Common Room
+Dreamdata
+6sense
+Demandbase
+ZoomInfo
+Apollo.io
+Gong
+Outreach
+Salesloft
+Highspot
+Seismic
+LeanData
+Chili Piper
+Calendly
+Qualified
+Mutiny
+Unify
+Default
+Attio
+HubSpot
+Sprout Social
+Webflow
+Writer
+Jasper
+Profound
+
+# --- Data, dev & infrastructure ---
+Anthropic
+ngrok
+Samsara
+Glean
+Hex
+dbt Labs
+Fivetran
+Airtable
+Notion
+Retool
+Zapier
+Vercel
+Supabase
+Postman
+Grafana Labs
+Temporal
+PagerDuty
+LaunchDarkly
+GitLab
+Sourcegraph
+Chronosphere
+MotherDuck
+
+# --- Seattle-area & other B2B SaaS ---
+Smartsheet
+Icertis
+Avalara
+Textio
+Amperity
+Stackline
+Qumulo
+Avante
+RAVEL
+Blurb
+Pure Storage
+Rippling
+Deel
+Gusto
+Lattice
+Ramp
+Brex
+Mercury
+Nintex
+Crelate
+
+# --- Conference-sourced: RSAC 2026 & Black Hat USA 2026 ---
+Geordie AI
+Charm Security
+Clearly AI
+Crash Override
+Fig Security
+Glide Identity
+Humanix
+Realm Labs
+ZeroPath
+Incalmo
+Deception Check
+Mallory
+Opnova
+Perpetual Systems
+Secure Agentics
+Senteon
+ReliaQuest
+Safe Security
+ThreatLocker
+Cymulate
+Fortra
+MIND
+Vectra AI
+Tenable
+Sophos
+Concentric AI
+Corellium
+Tracebit
+XBOW
+wolfSSL
+Crogl
+SandboxAQ
+HUMAN
+Mend.io
+GTB Technologies
+Alice.io
+Backslash Security
+Swimlane
+Darktrace
+Wallarm
+Exabeam
+Radware
+SOCRadar
+EasyDMARC
+Filigran
+Sumo Logic
+Varonis
