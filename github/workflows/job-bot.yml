@@ -1,0 +1,38 @@
+name: Job bot
+
+on:
+  schedule:
+    - cron: "0 14 * * *"
+    - cron: "0 23 * * *"
+  workflow_dispatch:
+    inputs:
+      resend_all:
+        description: "Resend every current match, not just new ones"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check job boards and email new roles
+        env:
+          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          DIGEST_TO: ${{ secrets.DIGEST_TO }}
+          RESEND_ALL: ${{ inputs.resend_all }}
+        run: python job_bot.py
+      - name: Save what the bot has seen
+        run: |
+          git config user.name "job-bot"
+          git config user.email "job-bot@users.noreply.github.com"
+          git add state
+          git diff --cached --quiet || git commit -m "Update job bot state"
+          git push
