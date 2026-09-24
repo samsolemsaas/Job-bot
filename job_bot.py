@@ -118,6 +118,28 @@ def comp_from_text(text):
     return ""
 
 
+# ---------- Dates ----------
+def parse_date(value):
+    """Return a UTC datetime from an ISO string or millisecond timestamp, else None."""
+    if not value:
+        return None
+    try:
+        if isinstance(value, (int, float)):
+            return datetime.fromtimestamp(value / 1000, tz=timezone.utc)
+        dt = datetime.fromisoformat(str(value).replace("Z", "+00:00"))
+        return dt if dt.tzinfo else dt.replace(tzinfo=timezone.utc)
+    except (ValueError, OSError, OverflowError):
+        return None
+
+
+def posted_label(dt):
+    if not dt:
+        return "Not listed"
+    days = (datetime.now(timezone.utc) - dt).days
+    ago = "today" if days <= 0 else "1 day ago" if days == 1 else f"{days} days ago"
+    return f"{dt.strftime('%b')} {dt.day}, {dt.year} ({ago})"
+
+
 # ---------- HTTP ----------
 def get_json(url):
     req = urllib.request.Request(url, headers={"User-Agent": "job-bot/1.0"})
@@ -147,6 +169,7 @@ def fetch_greenhouse(slug):
             "remote": False,
             "workplace": "",
             "comp": comp_from_text(j.get("content", "")),
+            "posted": parse_date(j.get("first_published") or j.get("updated_at")),
         })
     return jobs
 
@@ -174,6 +197,7 @@ def fetch_lever(slug):
             "remote": j.get("workplaceType") == "remote",
             "workplace": j.get("workplaceType", ""),
             "comp": comp,
+            "posted": parse_date(j.get("createdAt")),
         })
     return jobs
 
@@ -202,6 +226,7 @@ def fetch_ashby(slug):
             "remote": bool(j.get("isRemote")),
             "workplace": j.get("workplaceType", ""),
             "comp": comp,
+            "posted": parse_date(j.get("publishedAt")),
         })
     return jobs
 
@@ -281,18 +306,21 @@ def save_json(path, data):
 
 
 # ---------- Email ----------
-def build_email(matches, first_run, scanned, missing):
+def build_email(matches, first_run, scanned, missing, resend=False):
     today = datetime.now().strftime("%b %d")
-    label = "first run" if first_run else today
-    subject = f"Job bot: {len(matches)} new role{'s' if len(matches) != 1 else ''} ({label})"
+    label = "first run" if first_run else "full resend" if resend else today
+    kind = "current" if resend else "new"
+    subject = f"Job bot: {len(matches)} {kind} role{'s' if len(matches) != 1 else ''} ({label})"
     text_parts, html_parts = [], []
     for m in matches:
         comp = m["comp"] or "Not listed"
+        posted = posted_label(m.get("posted"))
         text_parts.append(
-            f"{m['title']} at {m['company']}\nComp: {comp}\n"
+            f"{m['title']} at {m['company']}\nPosted: {posted}\nComp: {comp}\n"
             f"Location: {m['label']} ({m['location']})\nApply: {m['url']}\n")
         html_parts.append(
             f"<p><b>{escape(m['title'])}</b> at {escape(m['company'])}<br>"
+            f"Posted: {escape(posted)}<br>"
             f"Comp: {escape(comp)}<br>"
             f"Location: {escape(m['label'])} <span style='color:#777'>"
             f"({escape(m['location'])})</span><br>"
@@ -324,9 +352,23 @@ def send_email(subject, text, html):
     print(f"Sent: {subject}")
 
 
+def upgrade_log_header():
+    """Add the date_posted column to logs written by the first version."""
+    if not os.path.exists(LOG_FILE):
+        return
+    with open(LOG_FILE, newline="", encoding="utf-8") as f:
+        rows = list(csv.reader(f))
+    if not rows or "date_posted" in rows[0]:
+        return
+    rows = [[r[0], "date_posted" if i == 0 else ""] + r[1:] for i, r in enumerate(rows) if r]
+    with open(LOG_FILE, "w", newline="", encoding="utf-8") as f:
+        csv.writer(f).writerows(rows)
+
+
 # ---------- Main ----------
 def main():
     dry_run = "--dry-run" in sys.argv
+    resend = os.environ.get("RESEND_ALL", "").lower() == "true" or "--resend-all" in sys.argv
     os.makedirs(STATE_DIR, exist_ok=True)
     seen = load_json(SEEN_FILE, {})
     boards = load_json(BOARDS_FILE, {})
@@ -359,7 +401,7 @@ def main():
             continue
         scanned += 1
         for j in jobs:
-            if j["id"] in seen or not title_matches(j["title"]):
+            if (j["id"] in seen and not resend) or not title_matches(j["title"]):
                 continue
             label = classify_location(j["location"], j["remote"], j["workplace"])
             if not label:
@@ -368,22 +410,28 @@ def main():
         time.sleep(0.1)
 
     found_date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    oldest = datetime(1970, 1, 1, tzinfo=timezone.utc)
+    matches.sort(key=lambda m: m.get("posted") or oldest, reverse=True)
+    new_ids = {m["id"] for m in matches if m["id"] not in seen}
     for m in matches:
-        seen[m["id"]] = found_date
+        seen.setdefault(m["id"], found_date)
 
     if matches:
-        subject, text, html = build_email(matches, first_run, scanned, len(missing))
+        subject, text, html = build_email(matches, first_run, scanned, len(missing), resend)
         if dry_run:
             print(subject + "\n\n" + text)
         else:
             send_email(subject, text, html)
+        upgrade_log_header()
         new_log = not os.path.exists(LOG_FILE)
         with open(LOG_FILE, "a", newline="", encoding="utf-8") as f:
             w = csv.writer(f)
             if new_log:
-                w.writerow(["date_found", "company", "title", "comp", "location", "url"])
-            for m in matches:
-                w.writerow([found_date, m["company"], m["title"], m["comp"],
+                w.writerow(["date_found", "date_posted", "company", "title", "comp",
+                            "location", "url"])
+            for m in (m for m in matches if m["id"] in new_ids):
+                posted = m["posted"].strftime("%Y-%m-%d") if m.get("posted") else ""
+                w.writerow([found_date, posted, m["company"], m["title"], m["comp"],
                             f"{m['label']} ({m['location']})", m["url"]])
     else:
         print(f"No new matches. Scanned {scanned} boards; {len(missing)} not found.")
