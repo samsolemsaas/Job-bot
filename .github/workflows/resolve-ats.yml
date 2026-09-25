@@ -1,0 +1,32 @@
+name: Resolve ATS
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  resolve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install requests
+        run: pip install requests
+
+      - name: Run resolver
+        run: python resolve_ats.py
+
+      - name: Save results to repo
+        run: |
+          git config user.name "job-bot"
+          git config user.email "job-bot@users.noreply.github.com"
+          git add state/ats_suggestions.txt
+          git commit -m "ATS resolver results" || echo "No changes"
+          git push
