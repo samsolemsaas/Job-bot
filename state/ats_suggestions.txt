@@ -1,0 +1,119 @@
+ATS resolver results
+
+PASTE INTO companies.txt (13)
+Replace each company's existing line with the override below.
+
+ConductorOne | ashby:C1
+ExtraHop | greenhouse:extrahopnetworks
+Flashpoint | ashby:flashpoint.io
+Glide Identity | ashby:glide
+Jasper | ashby:Jasper%20AI
+ngrok | greenhouse:ngrokinc
+Panther | greenhouse:pantherlabs
+Sourcegraph | greenhouse:sourcegraph91
+Tenable | greenhouse:tenableinc
+Todyl | ashby:Todyl
+Transcend | greenhouse:transcendinc
+XBOW | ashby:xbowcareers
+Zafran | ashby:zafran-security
+
+ON PLATFORMS THE BOT CAN'T READ YET
+
+workable (13)
+  7AI (7ai)
+  Aembit (aembit)
+  Alice.io (alice)
+  Anvilogic (anvilogic)
+  Aqua Security (aqua-security)
+  Arctic Wolf (arctic-wolf)
+  AuditBoard (auditboard)
+  Charm Security (charm)
+  Check Point (checkpoint)
+  Chronosphere (chronosphere)
+  Clay (clay)
+  CloudBees (cloudbees)
+  Cobalt (cobalt)
+
+recruitee (4)
+  Aikido Security (aikidosecurity)
+  Cranium (cranium)
+  Default (default)
+  Wallarm (wallarm)
+
+workday (3)
+  Darktrace (darktrace.wd3.myworkdayjobs.com/DarktaceExternal)
+  Palo Alto Networks (paloaltonetworks.wd5.myworkdayjobs.com/en-US/panwexternalcareers/introduceYourself)
+  ReliaQuest (reliaquest.wd5.myworkdayjobs.com/ReliaQuest_Careers)
+
+smartrecruiters (2)
+  Glean (glean)
+  Gong (gong)
+
+rippling (1)
+  Whistic (whistic-careers)
+
+STILL UNRESOLVED (63)
+
+Abnormal AI
+Abstract Security
+AirMDR
+Astrix Security
+Avalara
+Backslash Security
+Blurb
+Common Room
+Conveyor
+Corellium
+Crash Override
+Crelate
+Cycode
+Cyera
+dbt Labs
+Deception Check
+DefenseStorm
+DomainTools
+Dreamdata
+EasyDMARC
+Embed Security
+Exaforce
+Fortra
+GreyNoise
+Humanix
+Hunters
+Icertis
+Incalmo
+Intezer
+Knostic
+Legit Security
+Linx Security
+Mallory
+MIND
+Mindgard
+Noma Security
+Opnova
+Pentera
+Perpetual Systems
+Postman
+Radware
+RAVEL
+Responsive
+Retool
+Rippling
+Secure Agentics
+Seemplicity
+Seismic
+Senteon
+Silverfort
+Snyk
+SOCRadar
+Sprinto
+Stairwell
+Straiker
+Swimlane
+ThreatDown
+Upwind
+Varonis
+Vectra AI
+wolfSSL
+Zenity
+ZeroPath
