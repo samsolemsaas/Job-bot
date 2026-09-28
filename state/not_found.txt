@@ -53,12 +53,14 @@ Icertis
 Incalmo
 Intezer
 Jasper
+Keyfactor
 Knostic
 Legit Security
 Linx Security
 MIND
 Mallory
 Mindgard
+Neo Security
 Noma Security
 Opnova
 Palo Alto Networks
