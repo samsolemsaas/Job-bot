@@ -80,7 +80,6 @@ Seemplicity
 Seismic
 Senteon
 Silverfort
-Snyk
 Sourcegraph
 Sprinto
 Stairwell
