@@ -62,6 +62,7 @@ Mallory
 Mindgard
 Neo Security
 Noma Security
+Ocean Security
 Opnova
 Palo Alto Networks
 Panther
