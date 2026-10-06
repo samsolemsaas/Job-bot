@@ -47,6 +47,7 @@ Glean
 Glide Identity
 Gong
 GreyNoise
+HubSpot
 Humanix
 Hunters
 Icertis

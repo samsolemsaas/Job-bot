@@ -428,8 +428,8 @@
   "slug": "hoxhunt"
  },
  "HubSpot": {
-  "ats": "greenhouse",
-  "slug": "hubspot"
+  "checked": 1791295639.1840563,
+  "missing": true
  },
  "Humanix": {
   "checked": 1790896335.509106,
