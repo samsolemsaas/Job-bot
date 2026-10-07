@@ -17,7 +17,7 @@ Aembit
 Silverfort
 Semperis
 Saviynt
-ConductorOne
+ConductorOne | ashby:C1
 Opal Security
 Andromeda Security
 Linx Security
@@ -46,13 +46,13 @@ Intezer
 Expel
 Huntress
 Blumira
-Panther
+Panther | greenhouse:pantherlabs
 Anvilogic
 Hunters
 Abstract Security
 Cribl
 Elastic
-Todyl
+Todyl | ashby:Todyl
 Stairwell
 
 # --- Cloud, application & data ---
@@ -106,7 +106,7 @@ DataGrail
 Coverbase
 Whistic
 Conveyor
-Transcend
+Transcend | greenhouse:transcendinc
 
 # --- AI security ---
 HiddenLayer
@@ -125,7 +125,7 @@ DomainTools
 Check Point
 WatchGuard
 Palo Alto Networks
-Zafran
+Zafran | ashby:zafran-security
 Seemplicity
 Nucleus Security
 VulnCheck
@@ -136,11 +136,11 @@ Bugcrowd
 HackerOne
 Censys
 GreyNoise
-Flashpoint
+Flashpoint | ashby:flashpoint.io
 Twingate
 Tailscale
 Cato Networks
-ExtraHop
+ExtraHop | greenhouse:extrahopnetworks
 Tanium
 ConnectWise
 
@@ -174,12 +174,12 @@ HubSpot
 Sprout Social
 Webflow
 Writer
-Jasper
+Jasper | ashby:Jasper%20AI
 Profound
 
 # --- Data, dev & infrastructure ---
 Anthropic
-ngrok
+ngrok | greenhouse:ngrokinc
 Samsara
 Glean
 Hex
@@ -197,7 +197,7 @@ Temporal
 PagerDuty
 LaunchDarkly
 GitLab
-Sourcegraph
+Sourcegraph | greenhouse:sourcegraph91
 Chronosphere
 MotherDuck
 
@@ -229,7 +229,7 @@ Charm Security
 Clearly AI
 Crash Override
 Fig Security
-Glide Identity
+Glide Identity | ashby:glide
 Humanix
 Realm Labs
 ZeroPath
@@ -247,12 +247,12 @@ Cymulate
 Fortra
 MIND
 Vectra AI
-Tenable
+Tenable | greenhouse:tenableinc
 Sophos
 Concentric AI
 Corellium
 Tracebit
-XBOW
+XBOW | ashby:xbowcareers
 wolfSSL
 Crogl
 SandboxAQ
