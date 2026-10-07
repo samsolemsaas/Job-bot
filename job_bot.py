@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Samantha's job bot.
 
-Checks company job boards on Greenhouse, Lever and Ashby through their public
-job-board APIs, keeps marketing and GTM roles that are fully remote in the US or
+Checks company job boards on Greenhouse, Lever, Ashby, Workday and ADP through
+their public job-board APIs, keeps marketing and GTM roles that are fully remote in the US or
 in the Seattle metro, and emails a digest of roles it has not seen before.
 
 Run locally without email:  python job_bot.py --dry-run
@@ -16,7 +16,7 @@ import sys
 import time
 import urllib.error
 import urllib.request
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from html import escape, unescape
@@ -52,18 +52,22 @@ TITLE_INCLUDE = [
     "comms", "public relations", "pr manager", "pr director", "media relations",
     # Marketing ops and martech
     "mops", "marketing automation", "marketing technology", "martech",
+    # Common senior titles the phrases above miss
+    "marketing lead", "manager, marketing", "marketing programs", "customer marketing",
+    "event marketing", "events marketing",
 ]
+# Excludes match whole words only, so "intern" no longer blocks "internal communications"
 TITLE_EXCLUDE = [
-    "intern", "apprentice", "coordinator", "sales development",
-    "business development representative", "account executive", "recruit",
-    "software engineer", "staff engineer", "data engineer",
+    "intern", "internship", "apprentice", "coordinator", "sales development",
+    "business development representative", "account executive", "recruiter",
+    "recruiting", "recruitment", "software engineer", "staff engineer", "data engineer",
     "designer", "design lead", "product manager", "canada", "emea", "apac",
     "latam", "uk&i", "dach",
 ]
+# Titles with these words are always dropped
+TITLE_HARD_EXCLUDE = ["engineering manager", "product marketing engineer"]
 # Titles with these words stay in even if an exclude word appears
-TITLE_HARD_EXCLUDE = ["engineering manager"]
-TITLE_KEEP = ["gtm engineer", "go-to-market engineer", "marketing engineer",
-              "product marketing manager"]
+TITLE_KEEP = ["gtm engineer", "go-to-market engineer", "product marketing manager"]
 
 # ---------- Location filter ----------
 SEATTLE_METRO = ["seattle", "bellevue", "kirkland", "redmond"]
@@ -80,11 +84,15 @@ NON_US = [
 IN_OFFICE_WORDS = ["hybrid", "on-site", "onsite", "in office", "in-office"]
 
 
+def has_word(text, phrase):
+    return re.search(r"(?<![a-z0-9])" + re.escape(phrase) + r"(?![a-z0-9])", text) is not None
+
+
 def title_matches(title):
     t = title.lower()
     if any(word in t for word in TITLE_HARD_EXCLUDE):
         return False
-    if any(word in t for word in TITLE_EXCLUDE) and not any(k in t for k in TITLE_KEEP):
+    if any(has_word(t, word) for word in TITLE_EXCLUDE) and not any(k in t for k in TITLE_KEEP):
         return False
     return any(word in t for word in TITLE_INCLUDE)
 
@@ -160,6 +168,20 @@ def posted_label(dt):
 # ---------- HTTP ----------
 def get_json(url):
     req = urllib.request.Request(url, headers={"User-Agent": "job-bot/1.0"})
+    try:
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            if resp.status != 200:
+                return None
+            return json.loads(resp.read().decode("utf-8"))
+    except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError, ValueError):
+        return None
+
+
+def post_json(url, payload):
+    body = json.dumps(payload).encode("utf-8")
+    req = urllib.request.Request(url, data=body, method="POST", headers={
+        "User-Agent": "job-bot/1.0", "Content-Type": "application/json",
+        "Accept": "application/json"})
     try:
         with urllib.request.urlopen(req, timeout=20) as resp:
             if resp.status != 200:
@@ -248,7 +270,127 @@ def fetch_ashby(slug):
     return jobs
 
 
-ADAPTERS = {"greenhouse": fetch_greenhouse, "ashby": fetch_ashby, "lever": fetch_lever}
+WORKDAY_SEARCHES = ["marketing", "growth", "demand", "communications"]
+WORKDAY_MAX_PER_SEARCH = 200
+
+
+def workday_posted(text):
+    """Turn Workday's 'Posted 3 Days Ago' into a date."""
+    t = (text or "").lower()
+    now = datetime.now(timezone.utc)
+    if "today" in t:
+        return now
+    if "yesterday" in t:
+        return now - timedelta(days=1)
+    m = re.search(r"(\d+)\+?\s*day", t)
+    return now - timedelta(days=int(m.group(1))) if m else None
+
+
+def fetch_workday(spec):
+    """spec looks like paloaltonetworks.wd5/panwexternalcareers.
+
+    A full careers URL also works, e.g.
+    darktrace.wd3.myworkdayjobs.com/DarktaceExternal
+    """
+    spec = re.sub(r"^https?://", "", spec.strip()).replace(".myworkdayjobs.com", "")
+    parts = [p for p in spec.split("/") if p]
+    if len(parts) < 2:
+        return None
+    host = parts[0] + ".myworkdayjobs.com"
+    tenant = parts[0].split(".")[0]
+    site_parts = [p for p in parts[1:] if not re.fullmatch(r"[a-z]{2}-[A-Z]{2}", p)]
+    if not site_parts:
+        return None
+    site = site_parts[0]
+    base = f"https://{host}/wday/cxs/{tenant}/{site}"
+
+    postings, any_ok = {}, False
+    for term in WORKDAY_SEARCHES:
+        offset = 0
+        while offset < WORKDAY_MAX_PER_SEARCH:
+            data = post_json(f"{base}/jobs", {
+                "appliedFacets": {}, "limit": 20, "offset": offset, "searchText": term})
+            if not data or "jobPostings" not in data:
+                break
+            any_ok = True
+            page = data.get("jobPostings") or []
+            for p in page:
+                if p.get("externalPath"):
+                    postings.setdefault(p["externalPath"], p)
+            if len(page) < 20:
+                break
+            offset += 20
+            time.sleep(0.2)
+    if not any_ok:
+        return None
+
+    jobs = []
+    for path, p in postings.items():
+        title = p.get("title", "")
+        job = {
+            "id": f"wd-{tenant}-{path.rsplit('_', 1)[-1]}",
+            "title": title,
+            "url": f"https://{host}/{site}{path}",
+            "location": p.get("locationsText", ""),
+            "remote": "remote" in (p.get("remoteType") or "").lower(),
+            "workplace": p.get("remoteType") or "",
+            "comp": "",
+            "posted": workday_posted(p.get("postedOn")),
+        }
+        # Only open the full listing for roles that pass the title filter
+        if title_matches(title):
+            detail = (get_json(f"{base}{path}") or {}).get("jobPostingInfo") or {}
+            if detail:
+                locs = [detail.get("location", "")] + list(detail.get("additionalLocations") or [])
+                job["location"] = ", ".join(l for l in locs if l) or job["location"]
+                remote_type = detail.get("remoteType") or ""
+                if remote_type:
+                    job["workplace"] = remote_type
+                    job["remote"] = "remote" in remote_type.lower()
+                job["comp"] = comp_from_text(detail.get("jobDescription", ""))
+                job["posted"] = parse_date(detail.get("startDate")) or job["posted"]
+                job["url"] = detail.get("externalUrl") or job["url"]
+            time.sleep(0.2)
+        jobs.append(job)
+    return jobs
+
+
+def fetch_adp(cid):
+    """cid is the long ID in an ADP careers link (the part after cid=)."""
+    url = ("https://workforcenow.adp.com/mascsr/default/careercenter/public/events/"
+           f"staffing/v1/job-requisitions?cid={cid}&lang=en_US&locale=en_US&$top=200")
+    data = get_json(url)
+    if not data or "jobRequisitions" not in data:
+        return None
+    jobs = []
+    for j in data["jobRequisitions"]:
+        locs = []
+        for loc in j.get("requisitionLocations") or []:
+            addr = loc.get("address") or {}
+            city = addr.get("cityName", "")
+            state = (addr.get("countrySubdivisionLevel1") or {}).get("codeValue", "")
+            country = (addr.get("country") or {}).get("codeValue", "")
+            name = (loc.get("nameCode") or {}).get("shortName", "")
+            locs.append(", ".join(x for x in [name or city, state, country] if x))
+        fields = json.dumps(j.get("customFieldGroup") or {}).lower()
+        remote = "remote" in fields or any("remote" in l.lower() for l in locs)
+        item_id = j.get("itemID", "")
+        jobs.append({
+            "id": f"adp-{cid[:12]}-{item_id}",
+            "title": j.get("requisitionTitle", ""),
+            "url": ("https://workforcenow.adp.com/mascsr/default/mdf/recruitment/"
+                    f"recruitment.html?cid={cid}&jobId={item_id}"),
+            "location": "; ".join(l for l in locs if l),
+            "remote": remote,
+            "workplace": "remote" if remote else "",
+            "comp": "",
+            "posted": parse_date(j.get("postDate")),
+        })
+    return jobs
+
+
+ADAPTERS = {"greenhouse": fetch_greenhouse, "ashby": fetch_ashby, "lever": fetch_lever,
+            "workday": fetch_workday, "adp": fetch_adp}
 
 
 # ---------- Companies and board detection ----------
@@ -343,7 +485,7 @@ def build_email(matches, first_run, scanned, missing, resend=False):
             f"({escape(m['location'])})</span><br>"
             f"<a href='{escape(m['url'])}'>View listing</a></p>")
     footer = (f"Scanned {scanned} company boards. "
-              f"{missing} companies not on Greenhouse, Lever or Ashby (see state/not_found.txt).")
+              f"{missing} companies not found on a supported job system (see state/not_found.txt).")
     text = "\n".join(text_parts) + "\n" + footer
     html = "".join(html_parts) + f"<hr><p style='color:#777'>{escape(footer)}</p>"
     return subject, text, html
@@ -483,7 +625,8 @@ def main():
         save_json(SEEN_FILE, seen)
     save_json(BOARDS_FILE, boards)
     with open(NOT_FOUND_FILE, "w", encoding="utf-8") as f:
-        f.write("Companies not found on Greenhouse, Lever or Ashby.\n"
+        f.write("Companies not found on a supported job system "
+                "(Greenhouse, Lever, Ashby, Workday, ADP).\n"
                 "Fix with an override in companies.txt, e.g.  Company Name | ashby:slug\n\n")
         f.write("\n".join(sorted(missing)) + "\n")
 
