@@ -188,8 +188,8 @@
   "slug": "concentric"
  },
  "ConductorOne": {
-  "checked": 1790896335.509106,
-  "missing": true
+  "ats": "ashby",
+  "slug": "C1"
  },
  "ConnectWise": {
   "ats": "greenhouse",
@@ -248,8 +248,8 @@
   "slug": "cymulate"
  },
  "Darktrace": {
-  "checked": 1790896335.509106,
-  "missing": true
+  "ats": "workday",
+  "slug": "darktrace.wd3/DarktaceExternal"
  },
  "DataGrail": {
   "ats": "greenhouse",
@@ -336,8 +336,8 @@
   "slug": "expel"
  },
  "ExtraHop": {
-  "checked": 1790896335.509106,
-  "missing": true
+  "ats": "greenhouse",
+  "slug": "extrahopnetworks"
  },
  "Fig Security": {
   "ats": "ashby",
@@ -352,8 +352,8 @@
   "slug": "fivetran"
  },
  "Flashpoint": {
-  "checked": 1790896335.509106,
-  "missing": true
+  "ats": "ashby",
+  "slug": "flashpoint.io"
  },
  "Fortra": {
   "checked": 1790896335.509106,
@@ -380,8 +380,8 @@
   "missing": true
  },
  "Glide Identity": {
-  "checked": 1790896335.509106,
-  "missing": true
+  "ats": "ashby",
+  "slug": "glide"
  },
  "Gong": {
   "checked": 1790896335.509106,
@@ -468,8 +468,8 @@
   "slug": "island"
  },
  "Jasper": {
-  "checked": 1790896335.509106,
-  "missing": true
+  "ats": "ashby",
+  "slug": "Jasper%20AI"
  },
  "Keeper Security": {
   "ats": "greenhouse",
@@ -616,12 +616,12 @@
   "slug": "pagerduty"
  },
  "Palo Alto Networks": {
-  "checked": 1790896335.509106,
-  "missing": true
+  "ats": "workday",
+  "slug": "paloaltonetworks.wd5/panwexternalcareers"
  },
  "Panther": {
-  "checked": 1790896335.509106,
-  "missing": true
+  "ats": "greenhouse",
+  "slug": "pantherlabs"
  },
  "Pentera": {
   "checked": 1790896335.509106,
@@ -684,8 +684,8 @@
   "slug": "realm"
  },
  "ReliaQuest": {
-  "checked": 1790896335.509106,
-  "missing": true
+  "ats": "workday",
+  "slug": "reliaquest.wd5/ReliaQuest_Careers"
  },
  "Responsive": {
   "checked": 1790896335.509106,
@@ -792,8 +792,8 @@
   "slug": "sophos"
  },
  "Sourcegraph": {
-  "checked": 1790896335.509106,
-  "missing": true
+  "ats": "greenhouse",
+  "slug": "sourcegraph91"
  },
  "Sprinto": {
   "checked": 1790896335.509106,
@@ -852,8 +852,8 @@
   "slug": "temporal"
  },
  "Tenable": {
-  "checked": 1790896335.509106,
-  "missing": true
+  "ats": "greenhouse",
+  "slug": "tenableinc"
  },
  "Textio": {
   "ats": "greenhouse",
@@ -892,8 +892,8 @@
   "slug": "tracebit"
  },
  "Transcend": {
-  "checked": 1790896335.509106,
-  "missing": true
+  "ats": "greenhouse",
+  "slug": "transcendinc"
  },
  "Twingate": {
   "ats": "lever",
@@ -948,12 +948,12 @@
   "slug": "writer"
  },
  "XBOW": {
-  "checked": 1790896335.509106,
-  "missing": true
+  "ats": "ashby",
+  "slug": "xbowcareers"
  },
  "Zafran": {
-  "checked": 1790896335.509106,
-  "missing": true
+  "ats": "ashby",
+  "slug": "zafran-security"
  },
  "Zapier": {
   "ats": "ashby",
@@ -976,8 +976,8 @@
   "missing": true
  },
  "ngrok": {
-  "checked": 1790896335.509106,
-  "missing": true
+  "ats": "greenhouse",
+  "slug": "ngrokinc"
  },
  "wolfSSL": {
   "checked": 1790896335.509106,

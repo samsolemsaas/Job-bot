@@ -1,4 +1,4 @@
-Companies not found on Greenhouse, Lever or Ashby.
+Companies not found on a supported job system (Greenhouse, Lever, Ashby, Workday, ADP).
 Fix with an override in companies.txt, e.g.  Company Name | ashby:slug
 
 7AI
@@ -23,7 +23,6 @@ Clay
 CloudBees
 Cobalt
 Common Room
-ConductorOne
 Conveyor
 Corellium
 Cranium
@@ -31,7 +30,6 @@ Crash Override
 Crelate
 Cycode
 Cyera
-Darktrace
 Deception Check
 Default
 DefenseStorm
@@ -40,11 +38,8 @@ Dreamdata
 EasyDMARC
 Embed Security
 Exaforce
-ExtraHop
-Flashpoint
 Fortra
 Glean
-Glide Identity
 Gong
 GreyNoise
 HubSpot
@@ -53,7 +48,6 @@ Hunters
 Icertis
 Incalmo
 Intezer
-Jasper
 Keyfactor
 Knostic
 Legit Security
@@ -65,14 +59,11 @@ Neo Security
 Noma Security
 Ocean Security
 Opnova
-Palo Alto Networks
-Panther
 Pentera
 Perpetual Systems
 Postman
 RAVEL
 Radware
-ReliaQuest
 Responsive
 Retool
 Rippling
@@ -82,24 +73,18 @@ Seemplicity
 Seismic
 Senteon
 Silverfort
-Sourcegraph
 Sprinto
 Stairwell
 Straiker
 Swimlane
-Tenable
 ThreatDown
 Todyl
-Transcend
 Upwind
 Varonis
 Vectra AI
 Wallarm
 Whistic
-XBOW
-Zafran
 Zenity
 ZeroPath
 dbt Labs
-ngrok
 wolfSSL
