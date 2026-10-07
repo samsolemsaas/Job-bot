@@ -1,5 +1,6 @@
 # Job bot target companies. One per line.
 # The bot finds each company's Greenhouse, Lever or Ashby board on its own.
+# Workday and ADP need an override:  Company | workday:tenant.wd5/SiteName  or  Company | adp:CID
 # If it guesses wrong or can't find one, add an override:  Company Name | ashby:slug
 # (slug = the part of the careers URL after the ATS domain, e.g. jobs.ashbyhq.com/nightfall-ai)
 # Lines starting with # are ignored.
@@ -124,7 +125,7 @@ Empirical Security
 DomainTools
 Check Point
 WatchGuard
-Palo Alto Networks
+Palo Alto Networks | workday:paloaltonetworks.wd5/panwexternalcareers
 Zafran | ashby:zafran-security
 Seemplicity
 Nucleus Security
@@ -240,7 +241,7 @@ Opnova
 Perpetual Systems
 Secure Agentics
 Senteon
-ReliaQuest
+ReliaQuest | workday:reliaquest.wd5/ReliaQuest_Careers
 Safe Security
 ThreatLocker
 Cymulate
@@ -262,7 +263,7 @@ GTB Technologies
 Alice.io
 Backslash Security
 Swimlane
-Darktrace
+Darktrace | workday:darktrace.wd3/DarktaceExternal
 Wallarm
 Exabeam
 Radware
