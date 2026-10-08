@@ -1,0 +1,139 @@
+# Lens: Nagomi (exposure management)
+# Topics are buyer problems in the category, written in neutral terms.
+# fit says how credibly this company can join the conversation:
+#   3 = core, it should be in these conversations
+#   2 = adjacent, join when it can add something specific
+#   1 = listen only, learn from it but don't reply
+# angle is the point of view the company brings. who is the best person to say it.
+
+[company]
+name = "Nagomi"
+category = "Exposure management"
+url = "https://nagomisecurity.com/"
+aliases = ["nagomi", "nagomisecurity"]
+
+[buyers.leader]
+label = "Security leader"
+weight = 3
+phrases = ["ciso", "as a ciso", "security leader", "head of security", "vp of security",
+           "director of security", "security director", "my board", "our board", "security budget"]
+
+[buyers.vm_owner]
+label = "Vuln management owner"
+weight = 3
+phrases = ["vuln management", "vulnerability management team", "vm team", "vm program",
+           "vulnerability program", "our scanner", "qualys", "rapid7", "tenable", "nessus",
+           "patch compliance", "exposure management", "ctem"]
+
+[buyers.secops]
+label = "Security engineer & SecOps"
+weight = 2
+phrases = ["soc", "security engineer", "detection", "blue team", "incident response",
+           "our edr", "crowdstrike", "sentinelone", "defender", "siem", "splunk"]
+
+[buyers.it]
+label = "IT & infrastructure"
+weight = 2
+phrases = ["sysadmin", "it team", "it director", "patch tuesday", "intune", "sccm",
+           "endpoint management", "our servers", "infrastructure team", "change window"]
+
+[topics.prioritization]
+label = "Too many findings to prioritize"
+fit = 3
+who = "Sales engineer"
+angle = "Rank findings by whether an attacker could actually use them in this environment, including whether existing controls already block the path."
+phrases = ["too many vulnerabilities", "too many vulns", "vuln backlog", "vulnerability backlog",
+           "prioritiz", "cvss", "epss", "kev", "drowning", "critical findings", "what to fix first",
+           "thousands of cves", "risk-based"]
+
+[topics.remediation]
+label = "Getting fixes owned and done"
+fit = 3
+who = "Sales engineer"
+angle = "Findings don't reduce risk. Fixes do. Route each fix to the owner with the context they need to act."
+phrases = ["who owns", "asset owner", "app owners", "remediation", "ticket", "jira", "servicenow",
+           "patching", "patch", "sla", "fix rate", "mean time to remediate", "mttr", "pushback from it"]
+
+[topics.controls]
+label = "Security tools misconfigured or not covering everything"
+fit = 3
+who = "Founder or research team"
+angle = "Most breaches hit companies that already owned a tool that could have stopped them. Check coverage and configuration before buying more."
+phrases = ["misconfig", "misconfigured", "coverage gap", "edr coverage", "not deployed",
+           "drift", "control validation", "tool not configured", "already had the tool",
+           "compensating control", "sensor missing", "not enabled"]
+
+[topics.ai_cves]
+label = "AI-found vulnerability surge"
+fit = 2
+who = "Research team"
+angle = "When CVE volume jumps, the useful question is which ones can reach you. Correlate with controls and exposure paths."
+phrases = ["mythos", "ai-discovered", "ai discovered", "ai found", "flood of cves", "cve volume",
+           "llm found", "ai finding vulnerabilities", "zero-day surge", "cve flood"]
+
+[topics.board]
+label = "Proving progress to the board"
+fit = 2
+who = "Founder or CISO advisor"
+angle = "Report exposures closed and risk reduced, not vulnerability counts."
+phrases = ["board", "metrics", "kpi", "roi", "justify", "risk reduction", "report to leadership",
+           "executive report", "show progress"]
+
+[topics.sprawl]
+label = "Tool sprawl and consolidation"
+fit = 2
+who = "Founder"
+angle = "Get more out of the tools you already own before adding another."
+phrases = ["too many tools", "tool sprawl", "consolidat", "single pane", "another dashboard",
+           "vendor fatigue", "platform vs best of breed"]
+
+[topics.compliance]
+label = "Directives and compliance deadlines"
+fit = 2
+who = "Content team"
+angle = "Directives like BOD 26-04 reward running exposure management as a continuous operation, not a quarterly report."
+phrases = ["bod 26", "bod 22-01", "sec rule", "nis2", "dora", "pci", "hipaa", "audit",
+           "fedramp", "cyber insurance", "insurer"]
+
+[topics.staffing]
+label = "Too few people"
+fit = 1
+who = ""
+angle = ""
+phrases = ["burnout", "burned out", "understaffed", "headcount", "hiring freeze",
+           "team of one", "one person team", "overworked"]
+
+[topics.ai_security]
+label = "Securing AI and agents"
+fit = 1
+who = ""
+angle = ""
+phrases = ["shadow ai", "ai agents", "agentic", "mcp server", "llm security", "ai governance",
+           "copilot", "prompt injection"]
+
+# A conversation must mention one of these to count for this lens.
+[relevance]
+phrases = ["vulnerab", "cve", "patch", "exposure", "attack surface", "remediat", "scanner",
+           "pentest", "misconfig", "security tool", "edr", "ciso"]
+
+# How much each kind of room matters for this company (see audiences in communities.toml).
+[rooms]
+leaders = 3
+vm = 3
+secops = 2
+it = 2
+appsec = 1
+cloud = 2
+general = 1
+
+[sources]
+hn_queries = ["vulnerability management", "patch management", "exposure management",
+              "vulnerability backlog", "CVE flood", "EDR misconfiguration", "security tool sprawl"]
+stackexchange_queries = ["vulnerability management", "patch management", "vulnerability scanner",
+                         "prioritize vulnerabilities", "CVSS"]
+mastodon_tags = ["vulnerability", "patchtuesday", "ciso", "blueteam"]
+news_queries = ['CISO "vulnerability management"', "CISO patching backlog",
+                'security leaders "too many vulnerabilities"']
+subreddits = ["cybersecurity", "sysadmin", "AskNetsec", "blueteamsec", "CISO"]
+reddit_queries = ["vulnerability management", "patching", "prioritize vulnerabilities",
+                  "exposure management", "EDR coverage"]

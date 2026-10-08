@@ -1,0 +1,328 @@
+# Where buyers gather.
+# Each room lists the audiences it serves. Each lens weights those audiences, so the same
+# directory ranks differently for an exposure management company and an email security one.
+# Nothing here reads inside private groups. Access and notes come from public pages.
+#
+# audiences: leaders, vm, secops, it, email, msp, appsec, cloud, general
+# access:    open, apply, invite, paid, event
+# who:       which role should be there
+# norms:     how to show up without getting tuned out
+# match:     names practitioners use when they mention it (lowercase)
+[[rooms]]
+name = "r/cybersecurity"
+platform = "Reddit"
+audience = "Working security professionals and people entering the field"
+access = "open"
+who = "SEs and PMs answer questions in their own name. No pitching."
+audiences = ["general", "secops", "leaders"]
+norms = "Answer as a practitioner, say where you work, and skip the pitch. Moderators remove self-promotion."
+url = "https://www.reddit.com/r/cybersecurity/"
+match = ["r/cybersecurity", "/r/cybersecurity"]
+
+[[rooms]]
+name = "r/sysadmin"
+platform = "Reddit"
+audience = "IT and infrastructure teams who do the patching"
+access = "open"
+who = "SEs listen for remediation pain. Content team mines the language."
+audiences = ["it", "email", "vm"]
+norms = "Answer as a practitioner, say where you work, and skip the pitch. Moderators remove self-promotion."
+url = "https://www.reddit.com/r/sysadmin/"
+match = ["r/sysadmin", "/r/sysadmin"]
+
+[[rooms]]
+name = "r/AskNetsec"
+platform = "Reddit"
+audience = "Practitioners asking for tool and process advice"
+access = "open"
+who = "SEs answer evaluation questions honestly."
+audiences = ["secops", "general"]
+norms = "Answer as a practitioner, say where you work, and skip the pitch. Moderators remove self-promotion."
+url = "https://www.reddit.com/r/AskNetsec/"
+match = ["r/asknetsec", "/r/asknetsec"]
+
+[[rooms]]
+name = "r/blueteamsec"
+platform = "Reddit"
+audience = "Defenders, detection and response engineers"
+access = "open"
+who = "Product and research teams share findings."
+audiences = ["secops"]
+norms = "Answer as a practitioner, say where you work, and skip the pitch. Moderators remove self-promotion."
+url = "https://www.reddit.com/r/blueteamsec/"
+match = ["r/blueteamsec", "/r/blueteamsec"]
+
+[[rooms]]
+name = "r/CISO"
+platform = "Reddit"
+audience = "Security leaders"
+access = "open"
+who = "Founders and the CISO advisor listen first, post rarely."
+audiences = ["leaders"]
+norms = "Small, senior and wary of vendors. Listen first and post rarely."
+url = "https://www.reddit.com/r/CISO/"
+match = ["r/ciso", "/r/ciso"]
+
+[[rooms]]
+name = "Hacker News"
+platform = "Forum"
+audience = "Engineers and technical leaders"
+access = "open"
+who = "Founders and engineers post research and launches."
+audiences = ["general"]
+norms = "Engineers here punish marketing language. Add facts, data or code, and say where you work."
+url = "https://news.ycombinator.com/"
+match = ["hacker news", "hackernews"]
+
+[[rooms]]
+name = "infosec.exchange"
+platform = "Mastodon"
+audience = "Security researchers and practitioners"
+access = "open"
+who = "Research team posts findings."
+audiences = ["secops", "general"]
+norms = "Research and findings travel. Product posts don't."
+url = "https://infosec.exchange/"
+match = ["infosec.exchange", "infosec exchange"]
+
+[[rooms]]
+name = "OWASP Slack"
+platform = "Slack"
+audience = "Application security engineers and developers"
+access = "open"
+who = "SEs join channels on AppSec and supply chain."
+audiences = ["appsec"]
+norms = "Answer as a practitioner, say where you work, and skip the pitch. Moderators remove self-promotion."
+url = "https://owasp.org/slack/invite"
+match = ["owasp slack"]
+
+[[rooms]]
+name = "Black Hills Information Security Discord"
+platform = "Discord"
+audience = "Mid-level practitioners, threat hunters and pentesters"
+access = "open"
+who = "SEs listen and help. Webinar sponsorships through BHIS."
+audiences = ["secops"]
+norms = "Answer as a practitioner, say where you work, and skip the pitch. Moderators remove self-promotion."
+url = "https://discord.gg/bhis"
+match = ["bhis discord", "black hills discord", "black hills infosec discord", "discord.gg/bhis"]
+
+[[rooms]]
+name = "Threat Hunter Community Discord"
+platform = "Discord"
+audience = "Threat hunters and SOC analysts"
+access = "open"
+who = "Research team and SEs."
+audiences = ["secops"]
+norms = "Answer as a practitioner, say where you work, and skip the pitch. Moderators remove self-promotion."
+url = "https://discord.gg/threathunter"
+match = ["threat hunter community", "discord.gg/threathunter"]
+
+[[rooms]]
+name = "SANS CISO Network"
+platform = "Webinars and newsletter"
+audience = "CISOs and security executives"
+access = "apply"
+who = "CISO advisor or founder applies. Marketing sponsors sessions."
+audiences = ["leaders"]
+norms = "Join as a peer first. Sponsor or speak once you know the room."
+url = "https://www.sans.org/for-organizations/ciso-network"
+match = ["sans ciso network"]
+
+[[rooms]]
+name = "Evanta CISO communities (Gartner)"
+platform = "In-person summits"
+audience = "Qualified security leaders, vendor-neutral with sponsors"
+access = "event"
+who = "Field marketing sponsors. AEs attend with an exec."
+audiences = ["leaders"]
+norms = "Join as a peer first. Sponsor or speak once you know the room."
+url = "https://www.evanta.com/"
+match = ["evanta"]
+
+[[rooms]]
+name = "Gartner Peer Community"
+platform = "Online forum"
+audience = "Security and IT leaders"
+access = "invite"
+who = "Customer advocates answer polls. Marketing watches questions."
+audiences = ["leaders"]
+norms = "Join as a peer first. Sponsor or speak once you know the room."
+url = "https://www.gartner.com/peer-community/home"
+match = ["gartner peer community", "peer community"]
+
+[[rooms]]
+name = "CISO Executive Network"
+platform = "In-person chapters"
+audience = "Senior security executives"
+access = "apply"
+who = "Founder or CISO advisor. Sponsorship through partner programs."
+audiences = ["leaders"]
+norms = "Join as a peer first. Sponsor or speak once you know the room."
+url = ""
+match = ["ciso executive network"]
+
+[[rooms]]
+name = "CISO Society"
+platform = "Membership network"
+audience = "CISOs"
+access = "apply"
+who = "CISO advisor. Marketing explores partner programs."
+audiences = ["leaders"]
+norms = "Join as a peer first. Sponsor or speak once you know the room."
+url = "https://www.thecisosociety.com/"
+match = ["ciso society"]
+
+[[rooms]]
+name = "CISO Network"
+platform = "Peer community"
+audience = "CISOs"
+access = "apply"
+who = "CISO advisor or founder."
+audiences = ["leaders"]
+norms = "Join as a peer first. Sponsor or speak once you know the room."
+url = "https://www.cisonetwork.com/"
+match = ["ciso network"]
+
+[[rooms]]
+name = "403 Circle"
+platform = "Slack and WhatsApp"
+audience = "CISOs, CTOs and security leads"
+access = "invite"
+who = "Founder requests an invite."
+audiences = ["leaders"]
+norms = "Join as a peer first. Sponsor or speak once you know the room."
+url = "https://www.getastra.com/the403circle-community-by-astra"
+match = ["403 circle"]
+
+[[rooms]]
+name = "IANS Research"
+platform = "Advisory network"
+audience = "Security leaders buying advice"
+access = "paid"
+who = "Product marketing briefs IANS faculty."
+audiences = ["leaders"]
+norms = "Join as a peer first. Sponsor or speak once you know the room."
+url = "https://www.iansresearch.com/"
+match = ["ians"]
+
+[[rooms]]
+name = "CISO Series"
+platform = "Podcasts and live events"
+audience = "CISOs and security leaders"
+access = "open"
+who = "Founder pitches guest spots. Marketing sponsors episodes."
+audiences = ["leaders"]
+norms = "Join as a peer first. Sponsor or speak once you know the room."
+url = "https://cisoseries.com/"
+match = ["ciso series", "defense in depth podcast"]
+
+[[rooms]]
+name = "ISSA chapters"
+platform = "Local chapters"
+audience = "Security professionals at every level"
+access = "paid"
+who = "AEs and SEs in each territory join their local chapter."
+audiences = ["general", "secops"]
+norms = "Join as a peer first. Sponsor or speak once you know the room."
+url = "https://www.issa.org/"
+match = ["issa"]
+
+[[rooms]]
+name = "ISACA Engage"
+platform = "Online community and chapters"
+audience = "IT audit, risk and security professionals"
+access = "paid"
+who = "Marketing watches compliance questions."
+audiences = ["general"]
+norms = "Join as a peer first. Sponsor or speak once you know the room."
+url = "https://www.isaca.org/"
+match = ["isaca"]
+
+[[rooms]]
+name = "Cloud Security Alliance"
+platform = "Working groups and chapters"
+audience = "Cloud security architects and practitioners"
+access = "open"
+who = "Product joins a working group."
+audiences = ["cloud"]
+norms = "Join as a peer first. Sponsor or speak once you know the room."
+url = "https://cloudsecurityalliance.org/"
+match = ["cloud security alliance", "csa working group"]
+
+[[rooms]]
+name = "BSides events"
+platform = "Local conferences"
+audience = "Practitioners in each city"
+access = "event"
+who = "Field marketing sponsors the cities with the most target accounts. SEs give talks."
+audiences = ["secops", "general"]
+norms = "Join as a peer first. Sponsor or speak once you know the room."
+url = "https://bsides.org/"
+match = ["bsides"]
+
+[[rooms]]
+name = "FIRST"
+platform = "Member organization"
+audience = "CSIRT and PSIRT teams"
+access = "paid"
+who = "Research team."
+audiences = ["secops"]
+norms = "Join as a peer first. Sponsor or speak once you know the room."
+url = "https://www.first.org/"
+match = ["first.org", "first conference"]
+
+[[rooms]]
+name = "r/Office365"
+platform = "Reddit"
+audience = "Microsoft 365 and Exchange admins"
+access = "open"
+who = "SEs answer mail flow and Defender questions."
+audiences = ["email", "it"]
+norms = "Answer as a practitioner, say where you work, and skip the pitch. Moderators remove self-promotion."
+url = "https://www.reddit.com/r/Office365/"
+match = ["r/office365", "/r/office365"]
+
+[[rooms]]
+name = "r/msp"
+platform = "Reddit"
+audience = "Managed service providers running security for small businesses"
+access = "open"
+who = "Partner team and SEs. MSPs buy for many tenants at once."
+audiences = ["msp", "it", "email"]
+norms = "MSPs are blunt about vendors. Disclose, answer directly and never DM-pitch."
+url = "https://www.reddit.com/r/msp/"
+match = ["r/msp", "/r/msp"]
+
+[[rooms]]
+name = "M3AAWG"
+platform = "Industry working group"
+audience = "Email, messaging and anti-abuse professionals"
+access = "paid"
+who = "Research team joins working groups."
+audiences = ["email"]
+norms = "A technical, member-run group. Contribute research and data."
+url = "https://www.m3aawg.org/"
+match = ["m3aawg"]
+
+[[rooms]]
+name = "APWG"
+platform = "Industry working group"
+audience = "Anti-phishing researchers, banks and security vendors"
+access = "paid"
+who = "Research team shares phishing data."
+audiences = ["email", "secops"]
+norms = "Data sharing is the currency. Bring findings."
+url = "https://apwg.org/"
+match = ["apwg", "anti-phishing working group"]
+
+[[rooms]]
+name = "Security Stack Exchange"
+platform = "Q&A site"
+audience = "Practitioners asking precise technical questions"
+access = "open"
+who = "SEs and researchers answer in their own name."
+audiences = ["secops", "it", "email", "vm", "general"]
+norms = "Answers need to stand alone and be correct. Links to your product get downvoted."
+url = "https://security.stackexchange.com/"
+match = ["security stack exchange", "security.stackexchange"]

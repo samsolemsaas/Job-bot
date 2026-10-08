@@ -1,0 +1,46 @@
+# Hallway Track settings.
+# Hallway Track listens to buyers, not competitors. Each file in lenses/ describes one
+# company: who it sells to, the buyer problems it can speak to credibly, and how.
+# Every lens listed here is collected each run, and the dashboard can switch between them.
+
+lenses = ["nagomi", "ocean"]
+default_lens = "nagomi"
+
+# How far back trends, topics and rooms look.
+window_days = 90
+# First run looks back this far so the dashboard starts full.
+first_run_days = 30
+# A thread older than this is too stale to reply to. It still counts for topics.
+reply_window_days = 14
+# Most AI calls per run, across all lenses (GitHub Models free tier allows 150 a day).
+max_ai_calls = 24
+
+# Weigh-in scoring. Every conversation gets points for each lens, and the dashboard
+# shows which rules fired.
+[weigh_in]
+topic_core = 6          # the buyer's problem is one the company can speak to with authority
+topic_adjacent = 4
+topic_listen = 1        # worth knowing about, not worth replying to
+asking = 2              # written as a question or a request for help
+shopping = 2            # asking for tools, alternatives or recommendations
+unanswered = 4          # no replies yet
+thin = 2                # one to three replies
+crowded = -1            # fifteen or more replies, so a new voice gets lost
+fresh_2_days = 3
+fresh_7_days = 1
+mentions_company = 5    # the company is named, so someone should respond
+today = 11              # "Weigh in today" at this score or higher
+worth = 7               # "Worth a reply" at this score or higher
+
+# Phrases that signal someone is shopping or evaluating right now (all lenses).
+[intent]
+phrases = ["recommend", "recommendations", "anyone using", "anyone use", "alternatives to",
+           "alternative to", "looking for a tool", "looking for a solution", "evaluating",
+           "poc", "proof of concept", "rfp", "worth it", "vs ", "versus", "switch from",
+           "replace our", "renewal", "which tool", "what tools", "best tool", "experience with",
+           "what are you using", "what do you use", "what are you all using", "on top of", "anyone tried"]
+
+# Never keep these, whatever the lens.
+[exclude]
+phrases = ["who is hiring", "who wants to be hired", "freelancer? seeking", "job posting",
+           "resume", "certification exam", "oscp", "ctf", "homework", "for sale"]
