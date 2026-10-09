@@ -844,8 +844,8 @@
   "slug": "tanium"
  },
  "Teleport": {
-  "ats": "lever",
-  "slug": "teleport"
+  "checked": 1791554848.5760775,
+  "missing": true
  },
  "Temporal": {
   "ats": "ashby",
