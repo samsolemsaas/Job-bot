@@ -58,6 +58,7 @@ Neo Security
 Noma Security
 Ocean Security
 Opnova
+Panther
 Pentera
 Perpetual Systems
 Postman
