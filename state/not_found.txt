@@ -80,6 +80,7 @@ Straiker
 Swimlane
 Teleport
 ThreatDown
+ThreatLocker
 Todyl
 Upwind
 Varonis
